@@ -1,0 +1,53 @@
+body {
+    display: flex;
+    background: #ececec;
+    height: 500vh;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#clock div {
+    color: rgb(226, 139, 0);
+    background: #3e3e3e;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: sans-serif;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.clock {
+    display: flex;
+    flex-direction: row-reverse;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    transition: 0.7s all;
+}
+
+.left {
+    left: -77px;
+}
+
+#rotateArrow {
+    transition: 0.7s all;
+}
+
+.rotateArrow {
+    rotate: 180deg;
+}
+
+.clock button {
+    border: none;
+    background: #a5a5a5;
+    color: #3e3e3e;
+    font-weight: 900;
+    cursor: pointer;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 5px;
+}

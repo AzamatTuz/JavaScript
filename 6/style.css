@@ -1,0 +1,29 @@
+.cont {
+    background: #cecece;
+    padding: 10px;
+    width: 30px;
+    transition: 0.3s all;
+}
+
+p {
+    font-size: 30px;
+    display: flex;
+}
+
+span {
+    display: none;
+    transition: 0.5s all;
+}
+
+#btn {
+    border: none;
+    color: white;
+    font-size: 20px;
+    background: #ff5b5b;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+#btn:hover {
+    background: #ec5252;
+}
