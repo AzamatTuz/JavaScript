@@ -7,6 +7,8 @@ const products = [
     { name: 'Lolkerm', price: 18600, id: 5 },
 ];
 
+let num = document.getElementById('num');
+
 const loop = []
 
 const cont = document.getElementById('cont');
@@ -64,7 +66,8 @@ likeds.forEach((like) => {
             localStorage.setItem('liked', JSON.stringify(loop));
         }
 
-
+        num.textContent = arr.length;
+        ff()
     })
 
 });
@@ -95,12 +98,41 @@ function dd() {
 
         b++
 
-        removed.addEventListener('click', (e) => {
-            arr.splice(e.target.id - 10, 1);
+        removed.addEventListener('click', () => {
+            arr.splice(removed.id - 10, 1);
             localStorage.setItem('liked', JSON.stringify(arr));
             console.log(arr);
+            cart.removeChild(cartDiv);
+            num.textContent = arr.length;
         })
     })
 }
-
+num.textContent = arr.length;
 dd();
+
+let t = 0;
+function ff() {
+    t++;
+    let arp = JSON.parse(localStorage.getItem('liked'));
+    let thea = arp.pop();
+    console.log(thea);
+
+    const cartDive = document.createElement('div');
+    const cartPricee = document.createElement('h3');
+    const cartNamee = document.createElement('h1');
+    let removed = document.createElement('div');
+    removed.innerHTML = `<button id="1${b}">Remove</button>`;
+    removed.classList.add('removeBtns')
+
+    cartPricee.textContent = thea.price;
+    cartNamee.textContent = thea.name;
+
+    cartDive.appendChild(cartNamee);
+    cartDive.appendChild(cartPricee);
+    cartDive.appendChild(removed)
+
+    cart.appendChild(cartDive);
+    num.textContent = t;
+}
+
+// localStorage.clear()

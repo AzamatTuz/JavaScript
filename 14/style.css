@@ -1,0 +1,26 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image {
+    width: 800px;
+}
+
+#cont {
+    display: flex;
+    overflow: hidden;
+    overflow-x: scroll;
+    width: 800px;
+    scroll-behavior: smooth;
+}
+
+#cont::-webkit-scrollbar {
+    display: none;
+}
