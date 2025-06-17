@@ -1,11 +1,13 @@
 const products = [
     { name: 'Loerm', price: 1600, id: 0 },
-    { name: 'Lo7erm', price: 10600, id: 1 },
-    { name: 'L8oerm', price: 12600, id: 2 },
-    { name: 'Loierm', price: 13600, id: 3 },
-    { name: 'Loeolrm', price: 15600, id: 4 },
-    { name: 'Lolkerm', price: 18600, id: 5 },
+    { name: 'Game', price: 10600, id: 1 },
+    { name: 'INpUT', price: 12600, id: 2 },
+    { name: 'Maga', price: 13600, id: 3 },
+    { name: 'Laka', price: 15600, id: 4 },
+    { name: 'Raro', price: 18600, id: 5 },
 ];
+const baha = JSON.parse(localStorage.getItem('aha'))
+let aha = [];
 
 let num = document.getElementById('num');
 
@@ -14,77 +16,64 @@ const loop = []
 const cont = document.getElementById('cont');
 let i = 0;
 
-products.forEach((product) => {
-    const div = document.createElement('div');
-    const priceText = document.createElement('h3');
-    const nameText = document.createElement('h1');
+function ftdt() {
+    products.forEach((product) => {
+        const div = document.createElement('div');
+        const priceText = document.createElement('h3');
+        const nameText = document.createElement('h1');
 
 
-    let button = document.createElement('btn')
-    button.innerHTML = `<button id="${i}">Liked</button>`;
+        let button = document.createElement('btn')
+        button.innerHTML = `<button id="${i}">Liked</button>`;
 
-    button.classList.add('btn')
-    div.classList.add('card');
-    priceText.textContent = product.price;
-    nameText.textContent = product.name;
+        button.classList.add('btn')
+        div.classList.add('card');
+        priceText.textContent = product.price;
+        nameText.textContent = product.name;
 
-    div.appendChild(nameText);
-    div.appendChild(priceText);
-    div.appendChild(button);
+        div.appendChild(nameText);
+        div.appendChild(priceText);
+        div.appendChild(button);
 
+        button.addEventListener('click', () => {
+            let kaha = JSON.parse(localStorage.getItem('aha'));
+            let bratan = kaha;
+            
+            
 
-    cont.appendChild(div);
-
-    i++
-
-})
-
-const likeds = document.querySelectorAll('.btn');
-let a = 0;
-let arr = JSON.parse(localStorage.getItem('liked'));
-
-likeds.forEach((like) => {
-    like.addEventListener('click', (e) => {
-        console.log(e.target.id);
-        a = e.target.id
-
-        if (arr) {
-
-            if (arr.length) {
-
-                arr.push({ name: products[a].name, price: products[a].price, id: products[a].id });
-                localStorage.setItem('liked', JSON.stringify(arr));
-                console.log();
-
+            if (kaha) {
+                kaha.push(product);
+                localStorage.setItem('aha', JSON.stringify(bratan));
+                console.log(JSON.parse(localStorage.getItem('aha')));
             } else {
-                loop.push({ name: products[a].name, price: products[a].price, id: products[a].id })
-                localStorage.setItem('liked', JSON.stringify(loop));
+                aha.push(product);
+                localStorage.setItem('aha', JSON.stringify(aha));
+                console.log(JSON.parse(localStorage.getItem('aha')));
             }
 
-        } else {
-            loop.push({ name: products[a].name, price: products[a].price, id: products[a].id })
-            localStorage.setItem('liked', JSON.stringify(loop));
-        }
+            ff()
 
-        num.textContent = arr.length;
-        ff()
-    })
+        })
 
-});
+        cont.appendChild(div);
 
+        i++
 
-console.log(arr);
+    })  
+}
+
+ftdt()
+
 
 const cart = document.getElementById('cart');
-let b = 0;
 
 function dd() {
-    arr.forEach((cartE) => {
+    baha.forEach((cartE) => {
         const cartDiv = document.createElement('div');
         const cartPrice = document.createElement('h3');
         const cartName = document.createElement('h1');
         let removed = document.createElement('div');
-        removed.innerHTML = `<button id="1${b}">Remove</button>`;
+        removed.innerHTML = `<button>Remove</button>`;
         removed.classList.add('removeBtns')
 
         cartPrice.textContent = cartE.price;
@@ -96,32 +85,29 @@ function dd() {
 
         cart.appendChild(cartDiv);
 
-        b++
-
         removed.addEventListener('click', () => {
-            arr.splice(removed.id - 10, 1);
-            localStorage.setItem('liked', JSON.stringify(arr));
-            console.log(arr);
-            cart.removeChild(cartDiv);
-            num.textContent = arr.length;
+            console.log(baha.indexOf(cartE));
+
+            baha.splice(baha.indexOf(cartE), 1);
+            cart.removeChild(cartDiv)
+            localStorage.setItem('aha', JSON.stringify(baha))
         })
     })
 }
-num.textContent = arr.length;
+
 dd();
 
 let t = 0;
 function ff() {
     t++;
-    let arp = JSON.parse(localStorage.getItem('liked'));
+    let arp = JSON.parse(localStorage.getItem('aha'));
     let thea = arp.pop();
-    console.log(thea);
 
     const cartDive = document.createElement('div');
     const cartPricee = document.createElement('h3');
     const cartNamee = document.createElement('h1');
     let removed = document.createElement('div');
-    removed.innerHTML = `<button id="1${b}">Remove</button>`;
+    removed.innerHTML = `<button>Remove</button>`;
     removed.classList.add('removeBtns')
 
     cartPricee.textContent = thea.price;
@@ -133,6 +119,11 @@ function ff() {
 
     cart.appendChild(cartDive);
     num.textContent = t;
+
+    removed.addEventListener('click', () => {
+        baha.splice(baha.indexOf(thea), 1);
+        cart.removeChild(cartDive)
+        localStorage.setItem('aha', JSON.stringify(baha))
+    })
 }
 
-// localStorage.clear()

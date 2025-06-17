@@ -1,31 +1,35 @@
-let clock = document.getElementById('clock');
-const div = document.createElement('div');
+// let clock = document.getElementById('clock');
+// const div = document.createElement('div');
 
-function startTime() {
-    
-    const today = new Date();
-    let h = today.getHours();
-    let m = today.getMinutes();
-    m = checkTime(m);
-    div.innerHTML = `${h} : ${m}`;
-    setTimeout(startTime, 1000);
+// function startTime() {
 
-    
-}
+//     const today = new Date();
+//     let h = today.getHours();
+//     let m = today.getMinutes();
+//     m = checkTime(m);
+//     div.innerHTML = `${h} : ${m}`;
+//     setTimeout(startTime, 1000);
 
-clock.appendChild(div);
 
-function checkTime(i) {
-    if (i < 10) { i = "0" + i };
-    return i;
-}
+// }
 
-startTime()
+// clock.appendChild(div);
 
-const btn = document.getElementById('btn');
-const rotateArrow = document.getElementById('rotateArrow');
+// function checkTime(i) {
+//     if (i < 10) { i = "0" + i };
+//     return i;
+// }
 
-btn.addEventListener('click', () => {
-    clock.classList.toggle('left');
-    rotateArrow.classList.toggle('rotateArrow')
-})
+// startTime()
+
+// const btn = document.getElementById('btn');
+// const rotateArrow = document.getElementById('rotateArrow');
+
+// btn.addEventListener('click', () => {
+//     clock.classList.toggle('left');
+//     rotateArrow.classList.toggle('rotateArrow')
+// })
+
+
+var veggies = ['parsley', 'carrot']
+console.log(veggies[2])
